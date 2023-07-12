@@ -18,6 +18,20 @@ public class PortalGun : MonoBehaviour
         {
             GeraPortal(portalRed);
         }
+
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (portalRed || portalPink)
+            {
+                Destroy(GameObject.FindGameObjectWithTag("portal1"));
+                Destroy(GameObject.FindGameObjectWithTag("portal2"));
+            }
+            else
+            {
+                print("nao tem portal para destruir");
+            }
+            
+        }
     }
 
     private void GeraPortal(GameObject portal)
@@ -31,11 +45,6 @@ public class PortalGun : MonoBehaviour
             //Instantiate(portal, hit.point, Quaternion.LookRotation(hit.transform.forward));
             if (!hit.collider.gameObject.name.Equals("Terrain")) Instantiate(portal, hit.point, Quaternion.LookRotation(hit.transform.forward));
             else Instantiate(portal, hit.point, Quaternion.LookRotation(hit.transform.up));
-        }
-
-        else
-        {
-            print("oi");
         }
     }
 }

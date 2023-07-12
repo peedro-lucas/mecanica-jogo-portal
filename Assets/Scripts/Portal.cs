@@ -20,7 +20,7 @@ public class Portal : MonoBehaviour
     void TeleportarObjeto(GameObject portalSaida)
     {
         RaycastHit hit;
-        if(Physics.Raycast(transform.position,transform.forward, out hit, 1f))
+        if(Physics.Raycast(transform.position,transform.forward, out hit, 10f))
         {
             GameObject obj = hit.transform.gameObject;
             if(obj.tag == "ObjetosTeleportaveis")
